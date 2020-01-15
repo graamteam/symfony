@@ -152,7 +152,7 @@ abstract class AbstractToken implements TokenInterface
      */
     public function unserialize($serialized)
     {
-        list($this->user, $this->authenticated, $this->roles, $this->attributes) = unserialize($serialized);
+        list($this->user, $this->authenticated, $this->roles, $this->attributes) = \is_array($serialized) ? $serialized : unserialize($serialized);
     }
 
     /**
